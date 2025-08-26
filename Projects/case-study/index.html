@@ -3,9 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Case Study — Portfolio Federica Mongiello</title>
+  <title>Cream Creativi Mediterranei — Case Study</title>
   <link rel="stylesheet" href="../../assets/css/styles.css">
   <script defer src="../../assets/js/main.js"></script>
+
+  <!-- Tipografia -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
 </head>
 <body class="case-study">
 
@@ -13,14 +17,12 @@
   <header class="header">
     <div class="container header-container">
       <h1 class="brand">Federica Mongiello</h1>
-
       <nav class="nav" id="siteNav">
         <a href="../../index.html">Home</a>
         <a href="../../index.html#projects">Progetti</a>
         <a href="../../index.html#about">About</a>
         <a href="mailto:federica.mongiello16@gmail.com">Contatti</a>
       </nav>
-
       <button class="nav-toggle" aria-label="Apri menu">☰</button>
       <span class="nav-underline"></span>
     </div>
@@ -28,26 +30,96 @@
 
   <!-- Main -->
   <main class="container">
-    <section class="case-intro">
-      <h1>Case Study</h1>
-      <p class="subtitle">Un progetto di esempio per mostrare la struttura dei miei case study nel portfolio.</p>
+
+    <!-- Hero -->
+    <section class="case-hero">
+      <h1>Cream Creativi Mediterranei — Redesign sito web</h1>
+      <p class="subtitle">Dalla valutazione euristica al prototipo ad alta fedeltà: come ho migliorato usabilità e storytelling visivo di un brand mediterraneo.</p>
+      <img src="../../assets/img/cream-cover.png" alt="Mockup homepage Cream">
     </section>
 
-    <section class="case-details">
-      <h2>Background & Obiettivi</h2>
-      <p>Descrizione del problema iniziale, del target e degli obiettivi UX/UI.</p>
+    <!-- Background -->
+    <section class="case-section">
+      <h2>Background & Sfida</h2>
+      <div class="grid-2">
+        <div>
+          <p>Cream è un’agenzia creativa mediterranea che lavora con PMI in food, turismo e design.
+             Il sito mostrava criticità di chiarezza, usabilità del portfolio e coerenza visiva.</p>
+          <div class="kpis">
+            <div class="kpi">+20% CTA</div>
+            <div class="kpi">+30% tempo su Portfolio</div>
+          </div>
+        </div>
+        <div class="callout">
+          <h3>Obiettivi</h3>
+          <ul>
+            <li>Migliorare la navigazione</li>
+            <li>Rafforzare l’identità mediterranea</li>
+            <li>Valorizzare i progetti del portfolio</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
+    <!-- Processo -->
+    <section class="case-section">
+      <h2>Processo & Insight</h2>
+
+      <h3>Ricerca</h3>
+      <p>Analisi euristica (Nielsen), benchmark, interviste interne e sondaggio clienti via Qualtrics.</p>
+
+      <h3>Insight chiave</h3>
+      <ul>
+        <li>Portfolio difficile da navigare</li>
+        <li>Stile poco mediterraneo</li>
+        <li>CTA non chiare su mobile</li>
+      </ul>
+
+      <h3>Ideazione & Wireframe</h3>
+      <p>Riorganizzazione IA, wireframe low-fi e test di navigazione.</p>
+      <img src="../../assets/img/cream-wireframe.png" alt="Wireframe Cream">
+
+      <h3>Test & Iterazioni</h3>
+      <p>Due round di test → ottimizzato menù sticky e leggibilità delle card.</p>
+    </section>
+
+    <!-- Soluzione -->
+    <section class="case-section">
       <h2>Soluzione</h2>
-      <p>Spiegazione di come ho affrontato il problema con design e interazioni.</p>
+      <p>Header glassmorphism, sfondo sfumato blu/acqua, tipografia Inter+Fraunces e card animate.</p>
+      <img src="../../assets/img/cream-mockup.png" alt="Mockup finale Cream">
 
-      <h2>Risultati</h2>
-      <p>Eventuali metriche, feedback qualitativi o screenshot prima/dopo.</p>
+      <!-- Prototipo Figma -->
+      <div class="figma-embed">
+        <iframe
+          src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FEhZ1Uqn2mG1mCTsj1TcdtI%2FTESI-Cream-Redesign%3Fnode-id%3D2863-5686%26t%3DokqxElXgXbRSl7oX-1"
+          allowfullscreen
+          loading="lazy"
+          title="Prototipo Figma — Cream Redesign"></iframe>
+      </div>
+      <p><a href="https://www.figma.com/design/EhZ1Uqn2mG1mCTsj1TcdtI/TESI-Cream-Redesign?node-id=2863-5686&t=okqxElXgXbRSl7oX-1" target="_blank" rel="noopener">Apri prototipo a schermo intero ↗</a></p>
     </section>
 
+    <!-- Risultati -->
+    <section class="case-section">
+      <h2>Risultati & Learnings</h2>
+      <ul>
+        <li>+20% contatti attesi</li>
+        <li>+30% engagement portfolio</li>
+        <li>Feedback positivo sul nuovo branding</li>
+      </ul>
+      <div class="quote">“Ora il sito trasmette davvero la nostra identità mediterranea.” — Stakeholder Cream</div>
+
+      <h3>Learnings</h3>
+      <p>Valore di IA chiara e micro-interazioni per rendere memorabile l’esperienza.</p>
+    </section>
+
+    <!-- Navigazione -->
     <section class="case-nav">
       <a href="../../index.html#projects" class="btn-back">← Torna ai Progetti</a>
-      <a href="case-study2/index.html" class="btn-next">Case Study Successivo →</a>
+      <a href="/Projects/case-study2/index.html" class="btn-next">Case Study Successivo →</a>
     </section>
+
   </main>
 
   <!-- Footer -->
@@ -59,4 +131,3 @@
 
 </body>
 </html>
-

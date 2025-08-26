@@ -1,255 +1,329 @@
-/* Reset e base */
+/* ======================
+   RESET E BASE
+====================== */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-/* Base: gradiente sobrio, copre tutto lo schermo */
-body{
-    font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    color:#111; line-height:1.6; margin:0; min-height:100vh;
-    background: linear-gradient(120deg, #f9f9f9, #e0e0ff);
-    background-attachment: fixed; background-repeat:no-repeat; background-size:cover;
-  }
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: #111;
+  line-height: 1.6;
+  min-height: 100vh;
+  background: linear-gradient(120deg, #f9f9f9, #e0e0ff);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 /* Overlay sfumato in stile Bending Spoons */
-body::before{
-    content:"";
-    position: fixed;       /* resta fisso durante lo scroll */
-    inset:-20%;            /* più grande dello schermo per evitare bordi visibili */
-    z-index:-1;            /* sotto a tutto (l’header resta sopra) */
-    pointer-events:none;   /* non blocca i click */
-  
-    /* 4 macchie pastello morbide */
-    background:
-      radial-gradient(60% 60% at 18% 28%, #d9cffc 0 60%, transparent 61%),
-      radial-gradient(55% 55% at 82% 22%, #ffe6f2 0 55%, transparent 56%),
-      radial-gradient(60% 60% at 38% 82%, #cfeaff 0 60%, transparent 61%),
-      radial-gradient(45% 45% at 78% 75%, #ffe1e1 0 52%, transparent 53%);
-  
-    filter: blur(48px) saturate(108%); /* morbido ma vivido */
-    opacity:.85;
-  
-    /* micro-movimento organico */
-    transform: translateZ(0);
-    animation: bs-float 28s ease-in-out infinite alternate;
-  }
-  
-  /* movimento leggero: traslazione + minimo rotate/scale */
-  @keyframes bs-float{
-    0%   { transform: translate(-2%, -1%) scale(1) rotate(0deg); }
-    50%  { transform: translate(2%, 1%)   scale(1.02) rotate(0.6deg); }
-    100% { transform: translate(-1%, 2%)  scale(1.01) rotate(-0.6deg); }
-  }
+body::before {
+  content: "";
+  position: fixed;
+  inset: -20%;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(60% 60% at 18% 28%, #d9cffc 0 60%, transparent 61%),
+    radial-gradient(55% 55% at 82% 22%, #e6faff 0 55%, transparent 56%),
+    radial-gradient(60% 60% at 38% 82%, #cfeaff 0 60%, transparent 61%),
+    radial-gradient(45% 45% at 78% 75%, #d1fff2 0 52%, transparent 53%);
+  filter: blur(48px) saturate(108%);
+  opacity: .85;
+  animation: bs-float 28s ease-in-out infinite alternate;
+}
+
+@keyframes bs-float {
+  0%   { transform: translate(-2%, -1%) scale(1) rotate(0deg); }
+  50%  { transform: translate(2%, 1%) scale(1.02) rotate(0.6deg); }
+  100% { transform: translate(-1%, 2%) scale(1.01) rotate(-0.6deg); }
+}
+
 /* Case study: sfondo piatto */
-body.case-study::before {
-    display: none;
-  }
-    
+body.case-study { 
+  background: #f9f9f9; 
+  color: #222;
+}
+body.case-study::before { display: none; }
+
 a { text-decoration: none; color: inherit; }
-/* Sfondo pagine dei case study */
-body.case-study {
-    background: #f9f9f9; /* sfondo chiaro uniforme */
-    background-attachment: initial;
-    background-size: auto;
-  }
-  
+
 /* Container centrale */
-.container { max-width: 1100px; margin: 0 auto; padding: 24px; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
-/* Header compatto con glass, senza bordo */
-.header{
-    position: sticky; top:0; z-index:100;
-    padding: 8px 0;
-    background: rgba(255,255,255,.25);
-    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-  }
-  
-  .header-container{
-    position: relative;
-    display:flex; justify-content:space-between; align-items:center;
-  }
-  
-  .brand{ font-weight:600; font-size:1.4rem; color:#2005AA; }
-  
-  /* Nav */
-  .nav{ display:flex; gap:60px; }
-  .nav a{
-    color:#2005AA; font-weight:500; padding:8px 0; text-decoration:none;
-  }
-  
-  /* Unica barra mobile allineata al fondo del container */
-  .nav-underline{
-    position:absolute;
-    left:0;
-    bottom:-2px;   /* la spingi giù 2px, fuori dal container */
-    height:2px;
-    width:0;
-    opacity:0;
-    background: linear-gradient(90deg, #2005AA, #4dd0e1);
-    transition: left .25s ease, width .25s ease, opacity .2s ease;
-  }
-  
-  /* Stato attivo “desaturato” */
-  .nav a.active{ opacity:.6; }
-  
-  /* Mobile */
-  @media (max-width:768px){
-    .nav-underline{ display:none; }
-    .nav{
-      display:none; flex-direction:column;
-      background: rgba(255,255,255,.95);
-      position:absolute; right:16px; top:60px;
-      padding:16px; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,.1);
-    }
-    .nav.show{ display:flex; }
-    .nav-toggle{ display:block; font-size:1.8rem; background:none; border:none; cursor:pointer; }
-  }
-  @media (min-width:769px){
-    .nav-toggle{ display:none; }
-  }
-  
-  
-  .header.scrolled {
-    background: rgba(255, 255, 255, 0.9); /* più opaco quando scrolli */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: background 0.3s ease, box-shadow 0.3s ease;
-  }
-    
-/* Hero */
-.hero { background: #f9f9f9; padding: 80px 24px; text-align: center; }
-.hero h2 { font-size: 2.5rem; margin-bottom: 16px; color: #2005AA; }
-.hero p { font-size: 1.2rem; color: #333; }
+/* Monogramma “FM” che rivela il nome al hover/focus */
+.logo-collapsible{
+  display:inline-flex; align-items:center; gap:10px;
+  text-decoration:none;
+  outline: none;
+}
 
-/* Projects */
-.projects { padding: 60px 24px; }
-.projects h2 { font-size: 2rem; margin-bottom: 24px; }
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
-.card { padding: 16px; border: 1px solid #eee; border-radius: 12px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
-.card:hover { transform: translateY(-4px); box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
-.card h3 { font-size: 1.2rem; color: #2005AA; margin-bottom: 8px; }
-.card p { color: #555; }
+/* Badge FM grande, glassy */
+.logo-badge{
+  display:inline-grid; place-items:center;
+  min-width:48px; height:48px; padding:0 10px;
+  font: 800 1.1rem/1 'Inter', sans-serif; letter-spacing: .5px;
+  color:#fff;
+  background: linear-gradient(135deg,#2005AA, #4dd0e1);
+  border-radius:32px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.12);
+  backdrop-filter: saturate(160%) blur(10px);
+  -webkit-backdrop-filter: saturate(160%) blur(10px);
+  transition: transform .2s ease;
+}
+.logo-collapsible:hover .logo-badge,
+.logo-collapsible:focus .logo-badge,
+.logo-collapsible:focus-visible .logo-badge{
+  transform: translateY(-1px);
+}
 
-/* About */
-.about { padding: 60px 24px; background: #fff; }
-.about h2 { font-size: 2rem; margin-bottom: 16px; }
+/* Nome “a scomparsa” */
+.logo-fullname{
+  overflow:hidden;
+  white-space:nowrap;
+  max-width:0;                 /* nascosto di default */
+  opacity:0;
+  transition: max-width .4s ease, opacity .25s ease;
+  will-change: max-width, opacity;
+  display:inline-flex; gap:6px;
+}
 
-/* Footer */
-.footer { text-align: center; padding: 24px; border-top: 1px solid #eee; font-size: 0.9rem; color: #777; }
+/* Tipografia e colori */
+.logo-fullname .first{ font-weight:500; color:#2005AA; }
+.logo-fullname .last{  font-weight:500; color:#2005AA; }
 
-/* Projects Section */
-.projects h2 {
-    font-size: 2rem;
-    margin-bottom: 24px;
-    color: #2005AA;
-    text-align: center;
+/* Mostra su hover/focus tastiera */
+.logo-collapsible:hover .logo-fullname,
+.logo-collapsible:focus .logo-fullname,
+.logo-collapsible:focus-visible .logo-fullname{
+  max-width: 320px;            /* spazio sufficiente per il nome */
+  opacity:1;
+}
+
+/* Su header compatto: tieni tutto allineato */
+.header-container .logo-collapsible{ min-height:56px; }
+
+/* Mobile: opzionale — sempre compatto (solo FM) */
+@media (max-width:768px){
+  .logo-fullname{ display:none; }
+}
+
+
+
+/* Header liquido stile Apple */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 8px 0;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+.header.scrolled {
+  background: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.header-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 56px;
+  position: relative; /* serve per la barra underline */
+}
+
+.brand {
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #2005AA;
+}
+
+/* Nav */
+.nav {
+  display: flex;
+  gap: 40px;
+}
+.nav a {
+  font-weight: 500;
+  color: #2005AA;
+  padding: 6px 0;
+}
+.nav a.active { opacity: .6; }
+
+/* Underline a pelo del container */
+.nav-underline {
+  position: absolute;
+  bottom: 0; /* 👈 a filo con il bordo inferiore del container header */
+  left: 0;
+  height: 2px;
+  width: 0;
+  opacity: 0;
+  background: linear-gradient(90deg, #2005AA, #4dd0e1);
+  transition: left .25s ease, width .25s ease, opacity .2s ease;
+}
+
+/* Mobile */
+@media (max-width:768px){
+  .nav-underline { display: none; }
+  .nav {
+    display: none;
+    flex-direction: column;
+    background: rgba(255,255,255,.95);
+    position: absolute; right: 16px; top: 60px;
+    padding: 16px; border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,.1);
   }
-  
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
-  }
-  
-  .card {
-    border: 1px solid #eee;
-    border-radius: 12px;
-    padding: 16px;
-    background: #fff;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  .nav.show { display: flex; }
+  .nav-toggle {
+    display: block;
+    font-size: 1.6rem;
+    background: none;
+    border: none;
     cursor: pointer;
   }
-  
-  .card:hover {
-    transform: translateY(-6px) scale(1.02);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-  }
-  
-  .card h3 {
-    font-size: 1.3rem;
-    color: #2005AA;
-    margin-bottom: 8px;
-  }
-  
-  .card p {
-    color: #555;
-    font-size: 1rem;
-  }
+}
+@media (min-width:769px){
+  .nav-toggle { display: none; }
+}
 
-  /* Animazione fade-in */
-.card {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-  
-  .card.fade-in {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  /* ======================
-   Case Study Pages
+
+/* ======================
+   HOME (long-form editoriale)
 ====================== */
-body.case-study {
-    background: #f9f9f9;
-    color: #222;
-    line-height: 1.7;
-  }
-  
-  /* Intro */
-  .case-intro {
-    padding: 80px 20px 40px;
-    text-align: center;
-  }
-  .case-intro h2 {
-    font-size: 2.2rem;
-    color: #2005AA;
-    margin-bottom: 12px;
-  }
-  .case-intro .subtitle {
-    font-size: 1.2rem;
-    color: #555;
-    max-width: 720px;
-    margin: 0 auto;
-  }
-  
-  /* Dettagli */
-  .case-details {
-    padding: 40px 20px;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  .case-details h3 {
-    font-size: 1.5rem;
-    margin: 32px 0 12px;
-    color: #2005AA;
-  }
-  .case-details p {
-    font-size: 1rem;
-    color: #444;
-    margin-bottom: 16px;
-  }
-  
-  /* Navigazione tra case study */
-  .case-nav {
-    margin: 60px 0;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    gap: 24px;
-  }
-  .case-nav a {
-    padding: 10px 20px;
-    border-radius: 6px;
-    font-weight: 500;
-    background: #2005AA;
-    color: #fff;
-    transition: background 0.3s ease, transform 0.2s ease;
-  }
-  .case-nav a:hover {
-    background: #4dd0e1;   /* azzurro acqua al hover */
-    transform: translateY(-2px);
-  }
-  .case-nav .btn-back {
-    background: #eee;
-    color: #2005AA;
-  }
-  .case-nav .btn-back:hover {
-    background: #ddd;
-  }
-  
+:root {
+  --ink:#253041;
+  --muted:#5a6678;
+  --sea-400:#44b3b8;
+  --sea-600:#2a8e93;
+  --bg:#f9f9f9;
+}
+
+.page--longform .section {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 56px 20px;
+}
+.page--longform h1 { font-size: clamp(2.2rem, 4vw, 3.2rem); line-height: 1.1; color: var(--ink); margin-bottom: 12px; }
+.page--longform h2 { font-size: clamp(1.6rem, 2.8vw, 2.1rem); color: var(--ink); margin: 24px 0 12px; }
+.page--longform p  { color: var(--muted); font-size: 1.05rem; }
+
+/* Hero */
+.hero-intro { text-align: left; padding-top: 28px; }
+.hero-intro .kicker { color: var(--muted); font-weight: 500; margin-bottom: 8px; }
+.hero-intro .manifesto { margin-top: 12px; }
+.hero-intro .manifesto p { margin: 6px 0; }
+
+/* Pulsante "copia email" */
+.copy-email {
+  display: inline-flex; align-items: center; gap: 8px;
+  border: 1px solid #e4e4e4; background:#fff; color: var(--ink);
+  padding: 8px 12px; border-radius: 10px; cursor: pointer;
+  transition: transform .15s ease, box-shadow .2s ease;
+}
+.copy-email:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(0,0,0,.06); }
+
+/* Work blocks */
+.work-block { padding: 48px 0; }
+.work-meta {
+  display: flex; gap: 16px; align-items: baseline; color: var(--muted);
+  font-size: .95rem; flex-wrap: wrap;
+}
+.work-title { margin: 6px 0 12px; }
+.work-lede { margin-bottom: 16px; }
+.work-cta { margin-top: 10px; font-weight: 600; color: var(--sea-600); }
+.work-image {
+  display: block; width: 100%; border-radius: 12px;
+  box-shadow: 0 14px 36px rgba(0,0,0,.08); margin-top: 18px;
+}
+
+/* Citazioni/testimonianze */
+.quote-block {
+  margin: 32px 0; background: #fff; border: 1px solid #eee;
+  border-left: 4px solid var(--sea-400); padding: 16px 18px; border-radius: 10px;
+  font-style: italic; color: var(--ink);
+}
+
+/* Thoughts */
+.small-list a { display: block; margin: 8px 0; color: var(--sea-600); font-weight: 600; }
+
+/* Immagini full-bleed */
+.full-bleed {
+  width: 100vw; position: relative; left: 50%; right: 50%;
+  margin-left: -50vw; margin-right: -50vw;
+}
+
+/* ======================
+   CASE STUDY PAGES
+====================== */
+.case-intro {
+  padding: 80px 20px 40px;
+  text-align: center;
+}
+.case-intro h2 {
+  font-size: 2.2rem;
+  color: #2005AA;
+  margin-bottom: 12px;
+}
+.case-intro .subtitle {
+  font-size: 1.2rem;
+  color: #555;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.case-details {
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.case-details h3 {
+  font-size: 1.5rem;
+  margin: 32px 0 12px;
+  color: #2005AA;
+}
+.case-details p {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 16px;
+}
+
+/* Navigazione tra case study */
+.case-nav {
+  margin: 60px 0;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+}
+.case-nav a {
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 500;
+  background: #2005AA;
+  color: #fff;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+.case-nav a:hover {
+  background: #4dd0e1;
+  transform: translateY(-2px);
+}
+.case-nav .btn-back {
+  background: #eee;
+  color: #2005AA;
+}
+.case-nav .btn-back:hover { background: #ddd; }
+
+/* ======================
+   FOOTER
+====================== */
+.footer {
+  text-align: center;
+  padding: 24px;
+  border-top: 1px solid #eee;
+  font-size: 0.9rem;
+  color: #777;
+}
