@@ -1,133 +1,147 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cream Creativi Mediterranei — Case Study</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Cream — Case Study</title>
+  <meta name="description" content="Case study: redesign del sito Cream, dal discovery al prototipo ad alta fedeltà.">
   <link rel="stylesheet" href="../../assets/css/styles.css">
   <script defer src="../../assets/js/main.js"></script>
 
   <!-- Tipografia -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="case-study">
 
+<body class="case-study">
   <!-- Header -->
   <header class="header">
     <div class="container header-container">
-      <h1 class="brand">Federica Mongiello</h1>
-      <nav class="nav" id="siteNav">
-        <a href="../../index.html">Home</a>
-        <a href="../../index.html#projects">Progetti</a>
-        <a href="../../index.html#about">About</a>
+      <a class="logo-badge" href="../../index.html" aria-label="Torna alla home">
+        <span class="logo-initials" aria-hidden="true">FM</span>
+        <span class="logo-name" aria-hidden="true"><span class="first">Federica</span>&nbsp;<span class="last">Mongiello</span></span>
+      </a>
+      <nav class="nav" id="siteNav" aria-label="Navigazione principale">
+        <a href="../../index.html#work">Work</a>
+        <a href="../../index.html#thoughts">Thoughts</a>
         <a href="mailto:federica.mongiello16@gmail.com">Contatti</a>
       </nav>
       <button class="nav-toggle" aria-label="Apri menu">☰</button>
-      <span class="nav-underline"></span>
+      <span class="nav-underline" aria-hidden="true"></span>
     </div>
   </header>
 
   <!-- Main -->
-  <main class="container">
+  <main class="case-wrap">
+    <nav class="breadcrumbs" aria-label="breadcrumb">
+      <a href="../../index.html">Home</a> / <a href="../../index.html#work">Work</a> / <span aria-current="page">Cream</span>
+    </nav>
 
     <!-- Hero -->
     <section class="case-hero">
-      <h1>Cream Creativi Mediterranei — Redesign sito web</h1>
+      <h1>Cream — Redesign sito web</h1>
       <p class="subtitle">Dalla valutazione euristica al prototipo ad alta fedeltà: come ho migliorato usabilità e storytelling visivo di un brand mediterraneo.</p>
-      <img src="../../assets/img/cream-cover.png" alt="Mockup homepage Cream">
+      <img src="../../assets/img/cream-cover.png" alt="Hero image del case study Cream">
     </section>
 
-    <!-- Background -->
-    <section class="case-section">
-      <h2>Background & Sfida</h2>
+    <!-- Contesto & Sfida -->
+    <section class="case-section" id="contesto">
+      <h2>Contesto & Sfida</h2>
       <div class="grid-2">
         <div>
-          <p>Cream è un’agenzia creativa mediterranea che lavora con PMI in food, turismo e design.
-             Il sito mostrava criticità di chiarezza, usabilità del portfolio e coerenza visiva.</p>
-          <div class="kpis">
-            <div class="kpi">+20% CTA</div>
-            <div class="kpi">+30% tempo su Portfolio</div>
+          <p>Cream è un’agenzia mediterranea che lavora con PMI in food, turismo e design. Il sito mostrava criticità di chiarezza, usabilità del portfolio e coerenza visiva.</p>
+          <div class="kpis" aria-label="Indicatori di impatto attesi">
+            <div class="kpi">+20% click su CTA</div>
+            <div class="kpi">+30% tempo sul Portfolio</div>
           </div>
         </div>
-        <div class="callout">
-          <h3>Obiettivi</h3>
+        <aside class="callout" aria-labelledby="obiettivi">
+          <h3 id="obiettivi">Obiettivi</h3>
           <ul>
-            <li>Migliorare la navigazione</li>
+            <li>Migliorare la navigazione (IA più chiara)</li>
             <li>Rafforzare l’identità mediterranea</li>
             <li>Valorizzare i progetti del portfolio</li>
           </ul>
-        </div>
+        </aside>
       </div>
     </section>
 
     <!-- Processo -->
-    <section class="case-section">
+    <section class="case-section" id="processo">
       <h2>Processo & Insight</h2>
 
       <h3>Ricerca</h3>
-      <p>Analisi euristica (Nielsen), benchmark, interviste interne e sondaggio clienti via Qualtrics.</p>
+      <p>Analisi euristica (Nielsen), benchmark, interviste interne e sondaggio clienti via Qualtrics. Ho definito le principali ipotesi di rischio e le aree a maggior impatto.</p>
 
       <h3>Insight chiave</h3>
       <ul>
         <li>Portfolio difficile da navigare</li>
-        <li>Stile poco mediterraneo</li>
-        <li>CTA non chiare su mobile</li>
+        <li>Stile visivo poco “mediterraneo”</li>
+        <li>CTA poco chiare su mobile</li>
       </ul>
 
       <h3>Ideazione & Wireframe</h3>
-      <p>Riorganizzazione IA, wireframe low-fi e test di navigazione.</p>
-      <img src="../../assets/img/cream-wireframe.png" alt="Wireframe Cream">
+      <p>Riorganizzazione dell’architettura informativa, wireframe low-fi e test di navigazione con utenti rappresentativi.</p>
+
+      <figure class="figure">
+        <img src="../../assets/img/cream-wireframe.png" alt="Wireframe principali e flow di navigazione">
+        <figcaption>Wireframe & flow: chiarimento del percorso verso il portfolio e le CTA.</figcaption>
+      </figure>
 
       <h3>Test & Iterazioni</h3>
-      <p>Due round di test → ottimizzato menù sticky e leggibilità delle card.</p>
+      <p>Due round di test moderati: ottimizzate la barra sticky e la leggibilità delle card progetto.</p>
     </section>
 
     <!-- Soluzione -->
-    <section class="case-section">
+    <section class="case-section" id="soluzione">
       <h2>Soluzione</h2>
-      <p>Header glassmorphism, sfondo sfumato blu/acqua, tipografia Inter+Fraunces e card animate.</p>
-      <img src="../../assets/img/cream-mockup.png" alt="Mockup finale Cream">
+      <p>Header con glass leggero, palette blu/acqua, tipografia Inter e card consistenti tra listing e dettaglio.</p>
 
-      <!-- Prototipo Figma -->
-      <div class="figma-embed">
+      <figure class="figure">
+        <img src="../../assets/img/cream-mockup.png" alt="Mockup finale con nuove gerarchie e componenti UI">
+        <figcaption>UI finale: IA più chiara, CTA evidenti, card progetto consistenti.</figcaption>
+      </figure>
+
+      <!-- Prototipo Figma (sostituisci l’URL col tuo) -->
+      <div class="figure" style="margin-top:12px">
         <iframe
-          src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FEhZ1Uqn2mG1mCTsj1TcdtI%2FTESI-Cream-Redesign%3Fnode-id%3D2863-5686%26t%3DokqxElXgXbRSl7oX-1"
+          src="https://www.figma.com/embed?embed_host=share&url=#"
+          title="Prototipo Figma — Cream Redesign"
           allowfullscreen
           loading="lazy"
-          title="Prototipo Figma — Cream Redesign"></iframe>
+          style="width:100%;height:520px;border:1px solid #e9e9e9;border-radius:12px"></iframe>
       </div>
-      <p><a href="https://www.figma.com/design/EhZ1Uqn2mG1mCTsj1TcdtI/TESI-Cream-Redesign?node-id=2863-5686&t=okqxElXgXbRSl7oX-1" target="_blank" rel="noopener">Apri prototipo a schermo intero ↗</a></p>
+      <p><a href="#" target="_blank" rel="noopener">Apri prototipo a schermo intero ↗</a></p>
     </section>
 
     <!-- Risultati -->
-    <section class="case-section">
+    <section class="case-section" id="risultati">
       <h2>Risultati & Learnings</h2>
       <ul>
         <li>+20% contatti attesi</li>
-        <li>+30% engagement portfolio</li>
-        <li>Feedback positivo sul nuovo branding</li>
+        <li>+30% engagement sul portfolio</li>
+        <li>Feedback qualitativo positivo sull’identità mediterranea</li>
       </ul>
-      <div class="quote">“Ora il sito trasmette davvero la nostra identità mediterranea.” — Stakeholder Cream</div>
+
+      <blockquote class="figure" style="margin-top:8px">
+        <p>“Ora il sito trasmette davvero la nostra identità mediterranea.” — Stakeholder Cream</p>
+      </blockquote>
 
       <h3>Learnings</h3>
-      <p>Valore di IA chiara e micro-interazioni per rendere memorabile l’esperienza.</p>
+      <p>Valore di IA chiara e micro-interazioni sobrie per rendere memorabile l’esperienza e facilitare il passaggio a contatto.</p>
     </section>
 
     <!-- Navigazione -->
-    <section class="case-nav">
-      <a href="../../index.html#projects" class="btn-back">← Torna ai Progetti</a>
-      <a href="/Projects/case-study2/index.html" class="btn-next">Case Study Successivo →</a>
-    </section>
-
+    <nav class="case-nav" aria-label="navigazione case study">
+      <a href="../../index.html#work" class="btn-back">← Torna ai Progetti</a>
+      <a href="#" class="btn-next">Case Study Successivo →</a>
+    </nav>
   </main>
 
-  <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <small>© 2025 Federica Mongiello — Portfolio UX/UI Designer</small>
     </div>
   </footer>
-
 </body>
 </html>
