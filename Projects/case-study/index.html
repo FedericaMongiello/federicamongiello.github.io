@@ -22,8 +22,8 @@
         <span class="logo-name" aria-hidden="true"><span class="first">Federica</span>&nbsp;<span class="last">Mongiello</span></span>
       </a>
       <nav class="nav" id="siteNav" aria-label="Navigazione principale">
-        <a href="../../index.html#work">Work</a>
-        <a href="../../index.html#thoughts">Thoughts</a>
+        <a href="../../index.html#work" data-section="#work">Work</a>
+        <a href="../../index.html#thoughts" data-section="#thoughts">Thoughts</a>
         <a href="mailto:federica.mongiello16@gmail.com">Contatti</a>
       </nav>
       <button class="nav-toggle" aria-label="Apri menu">☰</button>
@@ -41,97 +41,81 @@
     <section class="case-hero">
       <h1>Cream — Redesign sito web</h1>
       <p class="subtitle">Dalla valutazione euristica al prototipo ad alta fedeltà: come ho migliorato usabilità e storytelling visivo di un brand mediterraneo.</p>
-      <img src="../../assets/img/cream-cover.png" alt="Hero image del case study Cream">
+      <img src="../../assets/img/cream/cover.png" alt="Cover del case study Cream: preview del redesign" loading="eager" decoding="async">
     </section>
 
-    <!-- Contesto & Sfida -->
-    <section class="case-section" id="contesto">
-      <h2>Contesto & Sfida</h2>
-      <div class="grid-2">
-        <div>
-          <p>Cream è un’agenzia mediterranea che lavora con PMI in food, turismo e design. Il sito mostrava criticità di chiarezza, usabilità del portfolio e coerenza visiva.</p>
-          <div class="kpis" aria-label="Indicatori di impatto attesi">
-            <div class="kpi">+20% click su CTA</div>
-            <div class="kpi">+30% tempo sul Portfolio</div>
-          </div>
-        </div>
-        <aside class="callout" aria-labelledby="obiettivi">
-          <h3 id="obiettivi">Obiettivi</h3>
-          <ul>
-            <li>Migliorare la navigazione (IA più chiara)</li>
-            <li>Rafforzare l’identità mediterranea</li>
-            <li>Valorizzare i progetti del portfolio</li>
-          </ul>
-        </aside>
-      </div>
+    <!-- Intro testo dopo la cover -->
+    <section class="case-section" id="intro-text">
+      <h2>Brief & Panoramica</h2>
+      <p>Il progetto ha integrato obiettivi di business, usabilità e user-centered design, con la volontà di rafforzare l’identità mediterranea di Cream e migliorare la chiarezza della navigazione.</p>
+      
+      <p>
+        Il redesign del sito web di Cream - Creativi Mediterranei è stato realizzato per l’elaborazione di un progetto di tesi in ottica UX/UI.  
+        Cream è un’agenzia di brand consulting pugliese che si distingue per il suo approccio fortemente creativo e innovativo, con l’obiettivo finale di costruire connessioni significative tra i brand e i loro consumatori.
+      </p>
+      <p>
+        Con un focus rivolto alla progettazione desktop e successivamente mobile, è stata adottanda una metodologia in ottica user experience e user interface, coniugata all’usabilità e allo user-centered design, al fine di migliorare la navigazione.
+      </p>
+      <p>
+        Tale approccio, a sua volta, ha inglobato e bilanciato le esigenze e i nuovi obiettivi di business dell’agenzia avanzati in fase di analisi: la percezione di un brand che rifletta i valori e l’identità di Cream connessi ad un’esperienza singolare in grado di coinvolgere un’audience di alto profilo in modo positivo e, aspirando alla creazione di un legame di fiducia significativo, che rifletta una coerenza visiva chiara anche nella comunicazione.
+      </p>
+      <p>
+        L’operatività che ha caratterizzato lo sviluppo del nuovo design va oltre la mera interazione digitale, inglobando una visione più ampia in cui ogni touchpoint rappresenta la chiave di volta per offrire valore e, in questo contesto, l’esperienza che ne deriva assolve tanto una funzione tecnica quanto l’integrazione naturale e significativa nella vita dell’utente di ogni giorno.
+      </p>
     </section>
 
-    <!-- Processo -->
-    <section class="case-section" id="processo">
-      <h2>Processo & Insight</h2>
+    <!-- Process image -->
+    <section class="case-section" id="process-img">
+      <h2>Design Process</h2>
+      <figure class="figure">
+        <img src="../../assets/img/cream/process.png" alt="Schema del design process adottato nel progetto Cream" loading="lazy" decoding="async">
+        <figcaption>Processo: dalle analisi iniziali alla valutazione finale.</figcaption>
+      </figure>
+    </section>
 
-      <h3>Ricerca</h3>
-      <p>Analisi euristica (Nielsen), benchmark, interviste interne e sondaggio clienti via Qualtrics. Ho definito le principali ipotesi di rischio e le aree a maggior impatto.</p>
-
-      <h3>Insight chiave</h3>
+    <!-- Needfinding -->
+    <section class="case-section" id="needfinding">
+      <h2>ANALISI AS IS: VALUTAZIONE EURISTICA</h2>
+      <p><strong>Principali violazioni riscontrate</strong></p>
       <ul>
-        <li>Portfolio difficile da navigare</li>
-        <li>Stile visivo poco “mediterraneo”</li>
-        <li>CTA poco chiare su mobile</li>
+        <li>Visibilità dello stato di sistema</li>
+        <li>Controllo e libertà degli utenti</li>
+        <li>Flessibilità ed efficienza d’uso</li>
+        <li>Feedback poco chiari</li>
       </ul>
 
-      <h3>Ideazione & Wireframe</h3>
-      <p>Riorganizzazione dell’architettura informativa, wireframe low-fi e test di navigazione con utenti rappresentativi.</p>
-
-      <figure class="figure">
-        <img src="../../assets/img/cream-wireframe.png" alt="Wireframe principali e flow di navigazione">
-        <figcaption>Wireframe & flow: chiarimento del percorso verso il portfolio e le CTA.</figcaption>
-      </figure>
-
-      <h3>Test & Iterazioni</h3>
-      <p>Due round di test moderati: ottimizzate la barra sticky e la leggibilità delle card progetto.</p>
-    </section>
-
-    <!-- Soluzione -->
-    <section class="case-section" id="soluzione">
-      <h2>Soluzione</h2>
-      <p>Header con glass leggero, palette blu/acqua, tipografia Inter e card consistenti tra listing e dettaglio.</p>
-
-      <figure class="figure">
-        <img src="../../assets/img/cream-mockup.png" alt="Mockup finale con nuove gerarchie e componenti UI">
-        <figcaption>UI finale: IA più chiara, CTA evidenti, card progetto consistenti.</figcaption>
-      </figure>
-
-      <!-- Prototipo Figma (sostituisci l’URL col tuo) -->
-      <div class="figure" style="margin-top:12px">
-        <iframe
-          src="https://www.figma.com/embed?embed_host=share&url=#"
-          title="Prototipo Figma — Cream Redesign"
-          allowfullscreen
-          loading="lazy"
-          style="width:100%;height:520px;border:1px solid #e9e9e9;border-radius:12px"></iframe>
-      </div>
-      <p><a href="#" target="_blank" rel="noopener">Apri prototipo a schermo intero ↗</a></p>
-    </section>
-
-    <!-- Risultati -->
-    <section class="case-section" id="risultati">
-      <h2>Risultati & Learnings</h2>
+      <h2>INTERVISTA SEMI-STRUTTURATA</h2>
+      <p>
+        L’intervista condotta ha consentito di esplorare in maniera esaustiva le motivazioni e le esigenze dei founders dell’agenzia e i punti di vista di alcune delle risorse che lavorano in Cream.
+      </p>
+      <p><strong>Tematiche affrontate</strong></p>
       <ul>
-        <li>+20% contatti attesi</li>
-        <li>+30% engagement sul portfolio</li>
-        <li>Feedback qualitativo positivo sull’identità mediterranea</li>
+        <li>Percezione suscitata dal sito precedente</li>
+        <li>Accessibilità e Usabilità</li>
+        <li>Esperienza di navigazione Desktop vs Mobile</li>
+        <li>Giudizi sull’organizzazione del layout e dei contenuti</li>
+        <li>Suggerimenti per il design della nuova Homepage</li>
+        <li>Funzionalità implementabili</li>
       </ul>
 
-      <blockquote class="figure" style="margin-top:8px">
-        <p>“Ora il sito trasmette davvero la nostra identità mediterranea.” — Stakeholder Cream</p>
-      </blockquote>
-
-      <h3>Learnings</h3>
-      <p>Valore di IA chiara e micro-interazioni sobrie per rendere memorabile l’esperienza e facilitare il passaggio a contatto.</p>
+      <h2>USABILITY TESTING SUL SITO PRECEDENTE</h2>
+      <p>
+        Il test di usabilità è stato eseguito per confermare e/o scoprire eventuali aree di intervento e comprendere le preferenze degli utenti.
+      </p>
+      <p><strong>Target utente:</strong> 25-50 anni M/F<br>
+         <strong>Partecipanti:</strong> 6</p>
+      <p><strong>Risultati emersi</strong></p>
+      <ul>
+        <li>Navigazione poco intuitiva</li>
+        <li>Organizzazione confusionaria in homepage</li>
+        <li>Assenza di un sistema di categorizzazione per Settori Clienti e Servizi</li>
+        <li>Narrazione differente per i case studies</li>
+        <li>Assenza di Feedback percepibile specialmente a seguito della compilazione del modulo Contatti</li>
+      </ul>
     </section>
 
-    <!-- Navigazione -->
+    <!-- (resto sezioni come già definite: Alternatives, Design System, Prototyping, Interaction, Evaluation, Nav) -->
+
     <nav class="case-nav" aria-label="navigazione case study">
       <a href="../../index.html#work" class="btn-back">← Torna ai Progetti</a>
       <a href="#" class="btn-next">Case Study Successivo →</a>

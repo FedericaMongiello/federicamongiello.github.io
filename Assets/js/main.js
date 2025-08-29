@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
   onScrollHeader();
   window.addEventListener('scroll', onScrollHeader, { passive: true });
 
-  /* 3) Underline utilities */
+  /* Underline helpers */
   const moveUnderlineTo = (el) => {
     if (!underline || !headerContainer || !el) return;
     const cRect = headerContainer.getBoundingClientRect();
@@ -41,32 +41,42 @@ document.addEventListener('DOMContentLoaded', () => {
   };
   const isDesktop = () => window.matchMedia('(min-width: 769px)').matches;
 
-  /* 4) Active state management via IntersectionObserver */
+  /* 3) Active state via IntersectionObserver (home, sezioni) */
   const sections = document.querySelectorAll('[data-observe]');
   const linkBySection = {};
   navLinks.forEach((a) => { linkBySection[a.dataset.section] = a; });
 
   const setActive = (hash) => {
-    nav?.querySelectorAll('a').forEach(a => a.classList.remove('active'));
+    if (!nav) return;
+    nav.querySelectorAll('a').forEach(a => a.classList.remove('active'));
     const link = linkBySection[hash];
     if (link) {
       link.classList.add('active');
       if (isDesktop()) moveUnderlineTo(link);
-    } else if (isDesktop()) hideUnderline();
+    } else if (isDesktop()) {
+      hideUnderline();
+    }
   };
 
   if ('IntersectionObserver' in window && sections.length) {
     const io = new IntersectionObserver((entries) => {
-      // il section più visibile diventa attivo
       const vis = entries
         .filter(e => e.isIntersecting)
         .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
       if (vis) setActive(`#${vis.target.id}`);
-    }, { threshold: [0.4, 0.6] });
+    }, { threshold: [0.45, 0.6] });
     sections.forEach(s => io.observe(s));
   }
 
-  // Hover/focus gestiscono underline ma non toccano .active
+  /* 4) Persistenza immediata su click (ancore) */
+  navLinks.forEach((a) => {
+    a.addEventListener('click', () => {
+      const hash = a.getAttribute('href');
+      if (hash && hash.startsWith('#')) setActive(hash);
+    });
+  });
+
+  /* Hover/focus → underline si muove ma non cambia l'attivo */
   if (nav && underline) {
     nav.addEventListener('mouseover', (e) => {
       const t = e.target.closest('a');
@@ -89,7 +99,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* 5) Copy email (a11y-friendly) */
+  /* 5) Stato attivo di default nelle pagine “interne” (case-study) */
+  if (document.body.classList.contains('case-study')) {
+    const workLink = nav?.querySelector('a[href*="#work"]');
+    workLink?.classList.add('active');
+    if (isDesktop()) moveUnderlineTo(workLink);
+  }
+
+  /* 6) Copy email (a11y-friendly) */
   const copyBtn = document.getElementById('copyEmailBtn');
   if (copyBtn) {
     const defaultLabel = 'Copia la mia email';
@@ -104,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* 6) Logo badge: tap mobile per aprire */
+  /* 7) Logo badge: tap mobile per aprire */
   const logoBadge = document.querySelector('.logo-badge');
   if (logoBadge) {
     logoBadge.addEventListener('click', (e) => {
