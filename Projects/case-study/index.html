@@ -3,79 +3,73 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Cream — Case Study Slide</title>
+  <title>Cream — Case Study</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../../assets/css/styles.css">
   <link rel="stylesheet" href="../../assets/css/slides.css">
+
+  <!-- JS -->
+  <script defer src="../../assets/js/main.js"></script>
   <script defer src="../../assets/js/slides.js"></script>
 
-  <!-- Tipografia -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="slides">
-  <!-- Paginatore laterale a pallini -->
-  <nav class="pagination" id="pagination" aria-label="Navigazione slide"></nav>
+<body class="case-study slides">
+  <!-- Header sovrapposto alla cover con glassmorphism -->
+  <header class="header header--glass-strong">
+    <div class="container header-container">
+      <a class="logo-badge" href="../../index.html" aria-label="Torna alla home">
+        <span class="logo-initials">FM</span>
+        <span class="logo-name"><span class="first">Federica</span>&nbsp;<span class="last">Mongiello</span></span>
+      </a>
+      <nav class="nav" id="siteNav" aria-label="Navigazione principale">
+        <a href="../../index.html#work">Work</a>
+        <a href="../../index.html#thoughts">Thoughts</a>
+        <a href="mailto:federica.mongiello16@gmail.com">Contatti</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Apri menu">☰</button>
+      <span class="nav-underline"></span>
+    </div>
+  </header>
 
-  <main class="slides-container" aria-label="Presentazione Cream">
-    <!-- SLIDE 1 — COVER PARALLAX (sticky a pieno schermo) + BOX TESTO SOVRAPPOSTO -->
+  <!-- Barra progressiva verticale -->
+  <aside class="v-progress" aria-hidden="true">
+    <span class="v-progress__track"></span>
+    <span class="v-progress__bar" id="vProgressBar"></span>
+  </aside>
+
+    <!-- CTA Torna su con tooltip -->
+    <button
+    class="back-to-top has-tip"
+    id="backToTop"
+    aria-label="Torna all’inizio"
+    data-tip="Torna all’inizio"
+  >↑</button>
+
+  <main>
+    <!-- SLIDE 1 — Cover FULL SCREEN senza spazio tra header e cover -->
     <section
-      class="slide parallax"
+      class="slide cover-full"
       id="slide1"
       style="--cover:url('../../assets/img/cream/cover.png')"
-      aria-label="Cover Cream"
-    >
-      <div class="sticky-cover" aria-hidden="true"></div>
+    ></section>
 
-      <!-- Box sovrapposto che appare con lo scroll (parallasse) -->
-      <div class="intro-box" id="introBox" aria-labelledby="intro-title">
-        <h1 id="intro-title">Cream — Redesign sito web</h1>
-        <p class="subtitle">Presentazione del progetto in ottica UX/UI</p>
-
-        <div class="rich-text">
-          <p>
-            Il redesign del sito web di <strong>Cream – Creativi Mediterranei</strong> è stato realizzato per l’elaborazione
-            di un progetto di tesi in ottica UX/UI. Cream è un’agenzia di brand consulting pugliese che si distingue
-            per il suo approccio <strong>fortemente creativo e innovativo</strong>, con l’obiettivo finale di costruire
-            connessioni significative tra i brand e i loro consumatori.
-          </p>
-          <p>
-            Con un focus rivolto alla progettazione <strong>desktop</strong> e successivamente <strong>mobile</strong>, è stata adottanda
-            una metodologia in ottica user experience e user interface, coniugata all’<strong>usabilità</strong> e allo
-            <strong>user-centered design</strong>, al fine di migliorare la navigazione.
-          </p>
-          <p>
-            Tale approccio ha bilanciato le esigenze e i <strong>nuovi obiettivi di business</strong> dell’agenzia: una percezione
-            di brand che rifletta i valori e l’identità di Cream, connessa a un’esperienza singolare in grado di coinvolgere
-            un’audience di alto profilo, aspirando a un legame di fiducia significativo e a una coerenza visiva
-            chiara anche nella comunicazione.
-          </p>
-          <p>
-            L’operatività va oltre la mera interazione digitale, inglobando una visione in cui ogni <em>touchpoint</em> rappresenta
-            la chiave per offrire valore: l’esperienza risultante assolve tanto una funzione tecnica quanto
-            un’integrazione naturale e significativa nella vita dell’utente.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 2 — Introduzione Cream / contesto -->
+    <!-- SLIDE 2 — Intro Box sotto la cover -->
     <section class="slide" id="slide2">
-      <div class="content">
-        <h2>Cream — Creativi Mediterranei</h2>
-        <p>
-          Fondata ufficialmente nel 2018, Cream si distingue per il suo approccio
-          <strong>fortemente creativo e innovativo</strong>, con l’obiettivo finale di costruire connessioni
-          significative tra i brand e i loro consumatori.
-        </p>
-        <ul>
-          <li>Expertise in Packaging Design e Branding</li>
-          <li>Leadership nei settori Food &amp; Beverage e Turismo</li>
-          <li>Partnership: Amaro Lucano, Divella, Mucci Confetti</li>
-        </ul>
-        <div class="img-placeholder" aria-label="Immagine di contesto">[immagine contesto Cream]</div>
+      <div class="content glass-card">
+        <h1>Cream — Redesign sito web</h1>
+        <p class="subtitle">Presentazione del progetto in ottica UX/UI</p>
+        <p>Il redesign del sito web di <strong>Cream – Creativi Mediterranei</strong> è stato realizzato per l’elaborazione di un progetto di tesi in ottica UX/UI. Cream è un’agenzia di brand consulting pugliese che si distingue per il suo approccio <strong>fortemente creativo e innovativo</strong>, con l’obiettivo finale di costruire connessioni significative tra i brand e i loro consumatori.</p>
+        <p>Con un focus rivolto alla progettazione <strong>desktop</strong> e successivamente <strong>mobile</strong>, è stata adottanda una metodologia in ottica user experience e user interface, coniugata all’<strong>usabilità</strong> e allo <strong>user-centered design</strong>, al fine di migliorare la navigazione.</p>
+        <p>Tale approccio ha bilanciato le esigenze e i <strong>nuovi obiettivi di business</strong> dell’agenzia: una percezione di brand che rifletta i valori e l’identità di Cream, connessa a un’esperienza singolare in grado di coinvolgere un’audience di alto profilo, aspirando a un legame di fiducia significativo e a una coerenza visiva chiara anche nella comunicazione.</p>
+        <p>L’operatività va oltre la mera interazione digitale, inglobando una visione in cui ogni <em>touchpoint</em> rappresenta la chiave per offrire valore.</p>
       </div>
     </section>
 
-    <!-- SLIDE 3 — Design Process -->
+    <!-- Design Process -->
     <section class="slide" id="slide3">
       <div class="content">
         <h2>Design Process</h2>
@@ -85,15 +79,14 @@
           <li><strong>Prototyping</strong> → Wireframe, Mockup, Interazioni</li>
           <li><strong>Evaluation</strong> → A/B test, usability test</li>
         </ol>
-        <div class="img-placeholder" aria-label="Process diagram">[process.png]</div>
+        <div class="img-placeholder">[process.png]</div>
       </div>
     </section>
 
-    <!-- SLIDE 4 — Needfinding: euristica -->
+    <!-- Analisi As Is -->
     <section class="slide" id="slide4">
       <div class="content">
         <h2>Analisi As Is: Valutazione euristica</h2>
-        <p><strong>Principali violazioni riscontrate:</strong></p>
         <ul>
           <li>Visibilità dello stato di sistema</li>
           <li>Controllo e libertà degli utenti</li>
@@ -104,42 +97,37 @@
       </div>
     </section>
 
-    <!-- SLIDE 5 — Needfinding: interviste -->
+    <!-- Interviste -->
     <section class="slide" id="slide5">
       <div class="content">
         <h2>Intervista semi-strutturata</h2>
-        <p>
-          L’intervista ha esplorato le <strong>motivazioni dei founders</strong> e i punti di vista di alcune risorse interne.
-        </p>
-        <p><strong>Tematiche affrontate:</strong></p>
         <ul>
-          <li>Percezione suscitata dal sito precedente</li>
+          <li>Percezione sito precedente</li>
           <li>Accessibilità e usabilità</li>
           <li>Navigazione Desktop vs Mobile</li>
           <li>Giudizi su layout e contenuti</li>
-          <li>Suggerimenti per la nuova homepage</li>
+          <li>Suggerimenti nuova homepage</li>
           <li>Funzionalità implementabili</li>
         </ul>
       </div>
     </section>
 
-    <!-- SLIDE 6 — Needfinding: usability test -->
+    <!-- Usability test -->
     <section class="slide" id="slide6">
       <div class="content">
-        <h2>Usability testing sul sito precedente</h2>
+        <h2>Usability testing sito precedente</h2>
         <p><strong>Target:</strong> 25–50 anni, M/F — <strong>Partecipanti:</strong> 6</p>
-        <p><strong>Risultati emersi:</strong></p>
         <ul>
           <li>Navigazione poco intuitiva</li>
-          <li>Organizzazione confusionaria in homepage</li>
-          <li>Assenza di categorizzazione chiara</li>
-          <li>Narrazione incoerente dei case studies</li>
-          <li>Feedback poco percepibile (es. modulo contatti)</li>
+          <li>Homepage confusa</li>
+          <li>Manca categorizzazione chiara</li>
+          <li>Narrazione incoerente nei case studies</li>
+          <li>Feedback assente (es. form contatti)</li>
         </ul>
       </div>
     </section>
 
-    <!-- SLIDE 7 — Personas -->
+    <!-- Personas -->
     <section class="slide" id="slide7">
       <div class="content">
         <h2>User Personas</h2>
@@ -147,7 +135,7 @@
       </div>
     </section>
 
-    <!-- SLIDE 8 — IA -->
+    <!-- IA -->
     <section class="slide" id="slide8">
       <div class="content">
         <h2>Information Architecture</h2>
@@ -155,7 +143,7 @@
       </div>
     </section>
 
-    <!-- SLIDE 9 — Wireframe -->
+    <!-- Wireframe -->
     <section class="slide" id="slide9">
       <div class="content">
         <h2>Wireframe & Sticky header</h2>
@@ -163,7 +151,7 @@
       </div>
     </section>
 
-    <!-- SLIDE 10 — Look & Feel -->
+    <!-- Look & Feel -->
     <section class="slide" id="slide10">
       <div class="content">
         <h2>Look &amp; Feel</h2>
@@ -173,7 +161,7 @@
       </div>
     </section>
 
-    <!-- SLIDE 11 — A/B test -->
+    <!-- A/B test -->
     <section class="slide" id="slide11">
       <div class="content">
         <h2>A/B test — Macroaree servizi</h2>
@@ -181,7 +169,7 @@
       </div>
     </section>
 
-    <!-- SLIDE 12 — New vs Old -->
+    <!-- New vs Old -->
     <section class="slide" id="slide12">
       <div class="content">
         <h2>New vs Old design</h2>
@@ -189,7 +177,7 @@
       </div>
     </section>
 
-    <!-- SLIDE 13 — Mobile -->
+    <!-- Mobile -->
     <section class="slide" id="slide13">
       <div class="content">
         <h2>Sviluppi futuri — Mobile</h2>
@@ -197,16 +185,19 @@
       </div>
     </section>
 
-    <!-- SLIDE 14 — Conclusione -->
+    <!-- Conclusione -->
     <section class="slide" id="slide14">
       <div class="content">
         <h2>Conclusione</h2>
-        <p>
-          Il redesign ha migliorato <strong>chiarezza</strong>, <strong>usabilità</strong> e <strong>coerenza visiva</strong>, rafforzando l’identità
-          mediterranea di Cream e creando un’esperienza positiva e memorabile.
-        </p>
+        <p>Il redesign ha migliorato <strong>chiarezza</strong>, <strong>usabilità</strong> e <strong>coerenza visiva</strong>, rafforzando l’identità mediterranea di Cream.</p>
       </div>
     </section>
   </main>
+
+  <footer class="footer">
+    <div class="container">
+      <small>© 2025 Federica Mongiello — Portfolio UX/UI Designer</small>
+    </div>
+  </footer>
 </body>
 </html>
